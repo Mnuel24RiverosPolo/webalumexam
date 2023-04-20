@@ -9,6 +9,8 @@ if (!isset($_POST["nombre"]) || !isset($_POST["edad"])) {
     exit();
 }
 include_once "base_de_datos.php";
+$nombre = $_POST["nombre"];
+$edad = $_POST["edad"];
 
 #Si todo va bien, se ejecuta esta parte del código...
 /*
