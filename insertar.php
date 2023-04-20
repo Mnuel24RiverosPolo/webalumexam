@@ -8,6 +8,7 @@ Este archivo inserta los datos enviados a través de formulario.php
 if (!isset($_POST["nombre"]) || !isset($_POST["edad"])) {
     exit();
 }
+include_once "base_de_datos.php";
 
 #Si todo va bien, se ejecuta esta parte del código...
 /*
