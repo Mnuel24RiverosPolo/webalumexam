@@ -1,4 +1,6 @@
 <?php
+
+ob_start();
 if (
     !isset($_POST["nombre"]) ||
     !isset($_POST["edad"]) ||
@@ -19,4 +21,5 @@ if ($resultado === true) {
 } else { 
 echo "Algo salié mal. Por favor verifica que la tabla exista, asi como el ID del usuario";
 }
+ob_end_flush();
 ?>

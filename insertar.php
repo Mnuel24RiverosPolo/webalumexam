@@ -1,4 +1,5 @@
 <?php
+ob_start();
 /*
 Este archivo inserta los datos enviados a través de formulario.php
 */
@@ -28,7 +29,10 @@ $resultado = $sentencia->execute([$nombre, $edad]); # Pasar en el mismo orden de
 
 if ($resultado === true) {
     # Redireccionar a la lista
-	header("Location: formulario.php");
+	header("Location: listar.php");
 } else {
     echo "Algo salió mal. Por favor verifica que la tabla exista";
 }
+ob_end_flush();
+
+?>
