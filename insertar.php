@@ -28,7 +28,7 @@ $resultado = $sentencia->execute([$nombre, $edad]); # Pasar en el mismo orden de
 
 if ($resultado === true) {
     # Redireccionar a la lista
-	header("Location: listar.php");
+	header("Location: formulario.php");
 } else {
     echo "Algo salió mal. Por favor verifica que la tabla exista";
 }
