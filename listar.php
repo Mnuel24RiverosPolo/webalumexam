@@ -5,8 +5,13 @@ Este archivo lista todos los datos de la tabla, obteniendo a los mismos como un 
 ?>
 <?php
 include_once "base_de_datos.php";
+$con = conexion();
+
+$sql = "select * from mascotas";
+$resultado = pg_query($con, $sql);
+/*
 $sentencia = $base_de_datos->query("select id, nombre, edad from mascotas");
-$mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+$mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);*/
 ?>
 
 <?php include_once "encabezado.php" ?>
