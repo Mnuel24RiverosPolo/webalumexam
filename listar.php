@@ -36,15 +36,17 @@ $mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);*/
 					<!--
 					Modificación
 					-->
-					<?php foreach($mascotas as $mascota){ ?>
-						<tr>
-							<td><?php echo $mascota->id ?></td>
-							<td><?php echo $mascota->nombre ?></td>
-							<td><?php echo $mascota->edad ?></td>
-							<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $mascota->id?>">Editar 📝</a></td>
+					<?php while($fila = pg_fetch_assoc($resultado)) { ?>
+					<tr>
+						<td><?php echo $fila['id']; ?></td>
+						<td><?php echo $fila['nombre']; ?></td>
+						<td><?php echo $fila['edad']; ?></td>
+						<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $mascota->id?>">Editar 📝</a></td>
 							<td><a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $mascota->id?>">Eliminar 🗑️</a></td>
-						</tr>
-					<?php } ?>
+					</tr>
+				<?php } ?>
+
+					
 				</tbody>
 			</table>
 		</div>
