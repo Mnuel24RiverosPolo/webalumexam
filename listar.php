@@ -5,13 +5,8 @@ Este archivo lista todos los datos de la tabla, obteniendo a los mismos como un 
 ?>
 <?php
 include_once "base_de_datos.php";
-$con = conexion();
-
-$sql = "select * from mascotas";
-$resultado = pg_query($con, $sql);
-/*
 $sentencia = $base_de_datos->query("select id, nombre, edad from mascotas");
-$mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);*/
+$mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <?php include_once "encabezado.php" ?>
@@ -36,17 +31,15 @@ $mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);*/
 					<!--
 					Modificación
 					-->
-					<?php while($fila = pg_fetch_assoc($resultado)) { ?>
-					<tr>
-						<td><?php echo $fila['id']; ?></td>
-						<td><?php echo $fila['nombre']; ?></td>
-						<td><?php echo $fila['edad']; ?></td>
-						<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $mascota->id?>">Editar 📝</a></td>
+					<?php foreach($mascotas as $mascota){ ?>
+						<tr>
+							<td><?php echo $mascota->id ?></td>
+							<td><?php echo $mascota->nombre ?></td>
+							<td><?php echo $mascota->edad ?></td>
+							<td><a class="btn btn-warning" href="<?php echo "editar.php?id=" . $mascota->id?>">Editar 📝</a></td>
 							<td><a class="btn btn-danger" href="<?php echo "eliminar.php?id=" . $mascota->id?>">Eliminar 🗑️</a></td>
-					</tr>
-				<?php } ?>
-
-					
+						</tr>
+					<?php } ?>
 				</tbody>
 			</table>
 		</div>
