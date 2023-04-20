@@ -9,7 +9,8 @@ $sentencia = $base_de_datos->query("select id, nombre, edad from mascotas");
 $mascotas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
-<?php include_once "encabezado.php" ?>
+
+
 <div class="row">
 
 	<div class="col-12">
